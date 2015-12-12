@@ -1,0 +1,7 @@
+{
+    "uuid": "worldtime@fltdpl.de",
+    "name": "Worldtime",
+    "description": "Shows the time in a specific time zone.",
+    "icon": "clock2",
+    "max-instances": "-1"
+}
