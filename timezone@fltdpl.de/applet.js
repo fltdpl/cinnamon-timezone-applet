@@ -1,4 +1,4 @@
-const UUID = "worldtime@fltdpl.de";
+const UUID = "timezone@fltdpl.de";
 const Applet = imports.ui.applet;
 const Util = imports.misc.util;
 const Settings = imports.ui.settings;
@@ -46,6 +46,13 @@ TimeZoneClockApplet.prototype = {
         this.on_setting_changed,
         null);
 
+      this.settings.bindProperty(
+        Settings.BindingDirection.IN,
+        'timezonelabel',
+        '_timezonelabel',
+        this.on_setting_changed,
+        null);
+
       },
 
 
@@ -54,8 +61,14 @@ TimeZoneClockApplet.prototype = {
       let now = Moment.moment().tz(this._preferences._timezone);
       let time2 = now.format('HH:mm');
 
-      this.set_applet_label(
-        this._preferences._timezone.toString() + ': ' + time2);
+      let tzlabel;
+      if (this._preferences._timezonelabel) {
+        tzlabel = this._preferences._timezonelabel + ' ';
+      } else {
+        tzlabel = this._preferences._timezone.toString() + ': ';
+      }
+
+      this.set_applet_label(tzlabel + time2);
       Mainloop.timeout_add(1000, Lang.bind(this, this.update));
 
     },

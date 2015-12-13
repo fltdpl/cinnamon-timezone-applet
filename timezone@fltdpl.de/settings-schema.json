@@ -587,7 +587,15 @@
           "W-SU": "W-SU",
           "WET": "WET",
           "Zulu": "Zulu"
-        }
+        },
+        "indent": true
+    },
+    "timezonelabel": {
+        "type": "entry",
+        "default": "",
+        "description": "Custom text",
+        "tooltip": "Enter custom text to show for the timezone.",
+        "indent": true
     }
 
 }
